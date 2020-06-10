@@ -253,7 +253,7 @@ class CompareAST(unittest.TestCase):
     def compare_StringNode(self, x, y):
         self.assertEqual(x.value, y.value)
 
-    def compare_EnumNode(self, x, y):
+    def compare_EnumOrNamedConstantNode(self, x, y):
         self.assertEqual(x.namespace, y.namespace)
         self.assertEqual(x.name, y.name)
             
