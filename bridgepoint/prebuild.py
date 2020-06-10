@@ -1104,7 +1104,7 @@ class ActionPrebuilder(xtuml.tools.Walker):
 
         s_enum = one(s_dt).S_EDT[17].S_ENUM[27](where(name=node.name))
         cnst_csp = self.any('CNST_CSP', where(InformalGroupName=node.namespace))
-        cnst_syc = cnst_csp.NCST_SYC[1504](where(Name=node.name))
+        cnst_syc = one(cnst_csp).NCST_SYC[1504](where(Name=node.name))
             
         if s_enum:
             v_val = self.v_val(node)
