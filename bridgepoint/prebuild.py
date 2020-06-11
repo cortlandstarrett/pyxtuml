@@ -1115,11 +1115,13 @@ class ActionPrebuilder(xtuml.tools.Walker):
             relate(v_len, s_enum, 824)
 
         elif cnst_syc:
+            s_dt = one(cnst_syc).S_DT[1500]()
             v_val = self.v_val(node)
             v_scv = self.new('V_SCV')
-
+            
             relate(v_val, v_scv, 801)
-            relate(v_len, cnst_syc, 850)
+            relate(v_val, s_dt, 820)
+            relate(v_scv, cnst_syc, 850)
 
         else:
             raise Exception("Unknown identifier '%s::%s'" % (node.namespace, node.name))
