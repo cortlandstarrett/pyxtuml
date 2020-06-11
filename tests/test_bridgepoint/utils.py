@@ -410,7 +410,16 @@ class PrebuildFunctionTestCase(CompareAST):
         xtuml.relate(cnst_syc, cnst_csp, 1504)
         xtuml.relate(cnst_syc, cnst_lfsc, 1502)
         xtuml.relate(cnst_lsc, cnst_lfsc, 1503)
-        
+
+        pe_pe = self.metamodel.new('PE_PE')
+        s_dt = self.metamodel.new('S_DT', Name='DayOfWeek')
+        s_edt = self.metamodel.new('S_EDT')
+        s_enum = self.metamodel.new('S_ENUM', Name='Monday')
+
+        xtuml.relate(s_dt, pe_pe, 8001)
+        xtuml.relate(s_dt, s_edt, 17)
+        xtuml.relate(s_enum, s_edt, 27)
+
     def tearDown(self):
         del self.metamodel
         

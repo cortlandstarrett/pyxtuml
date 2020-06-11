@@ -251,7 +251,7 @@ class TestConstLiterals(PrebuildFunctionTestCase):
         
     @prebuild_docstring
     def test_enum(self):
-        '''return FaLsE;'''
+        '''return DayOfWeek::Monday;'''
         act_ret = self.metamodel.select_one('ACT_RET')
         self.assertIsNotNone(act_ret)
         
@@ -263,13 +263,13 @@ class TestConstLiterals(PrebuildFunctionTestCase):
         self.assertEqual(v_val.isImplicit, False)
         self.assertEqual(v_val.LineNumber, 1)
         self.assertEqual(v_val.StartPosition, 8)
-        self.assertEqual(v_val.EndPosition, 12)
+        self.assertEqual(v_val.EndPosition, 24)
         
         s_dt = one(v_val).S_DT[820]()
-        self.assertEqual(s_dt.Name, 'boolean')
+        self.assertEqual(s_dt.Name, 'DayOfWeek')
         
-        v_lbo = one(v_val).V_LBO[801]()
-        self.assertEqual(v_lbo.Value, 'FALSE')
+        s_enum = one(v_val).V_LEN[801].S_ENUM[824]()
+        self.assertEqual(s_enum.Name, 'Monday')
 
     @prebuild_docstring
     def test_named_string(self):
